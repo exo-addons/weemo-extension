@@ -93,7 +93,7 @@
     var peopleSuggest = gj("#peopleSuggest");
     var platform = navigator.platform;
 
-    if(peopleSuggest && platform.indexOf("Linux") < 0) {     
+    if((peopleSuggest && platform.indexOf("Linux") < 0) || jqchat.browser.chrome) {     
      var suggestions = gj(peopleSuggest).find("#suggestions");
      setTimeout(function(){       
 
@@ -142,8 +142,4 @@
   return {
     VideoCalls : eXo.ecm.VideoCalls
   };
-
-  
-  
-
 })(gj, bts_modal, bts_popover);
