@@ -343,7 +343,8 @@ WeemoExtension.prototype.showVideoPopup = function(url) {
   var h = Math.floor(screen.height * 0.8 );
   var left = (screen.width/2)-(w/2);
   var top = (screen.height/2)-(h/2);
-  window.open(url, 'Video Call', 'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, width='+w+', height='+h+', top='+top+', left='+left);
+  sightCallPopup = window.open(url, 'Video Call', 'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, width='+w+', height='+h+', top='+top+', left='+left);
+  sightCallPopup.focus();
 };
 
 
