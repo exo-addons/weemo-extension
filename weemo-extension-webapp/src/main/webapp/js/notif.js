@@ -21,6 +21,9 @@ function WeemoExtension() {
   this.isTurnOffForUser = false;
   this.isTurnOffForGroupCall = 'true';
   this.isTurnOff = false;
+  this.meetingPointId = "";
+  this.uidToCall = "";
+  this.displaynameToCall = "";
   this.isCloudRunning = 'false';
 
   this.tiptipContentDOMNodeInsertedHandler = function() {
@@ -45,6 +48,20 @@ WeemoExtension.prototype.setTokenKey = function(tokenKey) {
   jzStoreParam("tokenKey", tokenKey, 14400); // timeout = 60 sec * 60 min * 4 hours = 14400 sec
 };
 
+WeemoExtension.prototype.setUidToCall = function(uidToCall) {
+  this.uidToCall = uidToCall;
+  jzStoreParam("uidToCall", uidToCall, 14400);
+};
+
+WeemoExtension.prototype.setDisplaynameToCall = function(displaynameToCall) {
+  this.displaynameToCall = displaynameToCall;
+  jzStoreParam("displaynameToCall", displaynameToCall, 14400);
+};
+
+WeemoExtension.prototype.setMeetingPointId = function(meetingPointId) {
+  this.meetingPointId = meetingPointId;
+  jzStoreParam("meetingPointId", meetingPointId, 14400);
+};
 /**
  * Gets target user status
  * @param targetUser
@@ -343,7 +360,7 @@ WeemoExtension.prototype.showVideoPopup = function(url) {
   var h = Math.floor(screen.height * 0.8 );
   var left = (screen.width/2)-(w/2);
   var top = (screen.height/2)-(h/2);
-  sightCallPopup = window.open(url, 'Video Call', 'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, width='+w+', height='+h+', top='+top+', left='+left);
+  sightCallPopup = window.open(url, 'VideoCall', 'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, width='+w+', height='+h+', top='+top+', left='+left);
   sightCallPopup.focus();
 };
 
