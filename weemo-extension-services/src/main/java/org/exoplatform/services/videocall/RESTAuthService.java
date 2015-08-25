@@ -99,6 +99,7 @@ public class RESTAuthService implements ResourceContainer {
     CacheControl cacheControl = new CacheControl();
     cacheControl.setNoCache(true);
 
+    // Current only use callMode=one for sending message
     MessageInfo messageInfo = new MessageInfo(messageType, ConversationState
             .getCurrent().getIdentity().getUserId(), callee, "one");
 
