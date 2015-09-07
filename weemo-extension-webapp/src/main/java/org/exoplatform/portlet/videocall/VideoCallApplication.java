@@ -119,6 +119,7 @@ public class VideoCallApplication {
     // Check permission for using weemo of user
     boolean turnOffVideoCallForUser = videoCallService_.isTurnOffVideoCallForUser();
     boolean turnOffVideoCall = videoCallService_.isTurnOffVideoCall();
+    boolean turnOffVideoGroupCallForUser = videoCallService_.isTurnOffVideoCallForUser(true);
 
     // Check if same account loggin on other place
     boolean isSameUserLogged = false;
@@ -133,7 +134,8 @@ public class VideoCallApplication {
             .set("turnOffVideoCall", turnOffVideoCall)
             .set("videoCallVersion", videoCallVersion)
             .set("isSameUserLogged", isSameUserLogged)
-            .set("isCloudRunning", VideoCallService.isCloudRunning());
+            .set("isCloudRunning", VideoCallService.isCloudRunning())
+            .set("turnOffVideoGroupCallForUser", turnOffVideoGroupCallForUser);
 
     // Get trial information from BO
     if (VideoCallService.isCloudRunning()) {
@@ -187,12 +189,7 @@ public class VideoCallApplication {
               .set("remainDay", remainDay)
               .set("tenantName", tenantName)
               .set("encodedKey", encodedKey)
-              .set("addonstatus", addonstatus)
-              .set("turnOffVideoGroupCallForUser", true);;
-
-    } else {
-      boolean turnOffVideoGroupCallForUser = videoCallService_.isTurnOffVideoCallForUser(true);
-      builder.set("turnOffVideoGroupCallForUser", turnOffVideoGroupCallForUser);
+              .set("addonstatus", addonstatus);
     }
 
     return builder.ok();

@@ -657,9 +657,6 @@
         var tdGroupIcon = $('<td/>', {
           "class":"center"
         });
-        if (weemoExtension.isCloudRunning === 'true') {
-          tdGroupIcon.css('display', 'none');
-        }
 	      var divIcon = $('<div/>', {        
 		"class":"spaceRole"
 	      });
