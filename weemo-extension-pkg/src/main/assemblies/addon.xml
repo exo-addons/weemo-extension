@@ -67,7 +67,7 @@
   <fileSets>
     <fileSet>
       <directory>../data/</directory>
-      <outputDirectory>/${project.build.finalName}/</outputDirectory>
+      <outputDirectory>/${project.build.finalName}/weemo/</outputDirectory>
       <includes>
         <include>weemo-sample.properties</include>
       </includes>
